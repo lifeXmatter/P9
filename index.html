@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<title>AngularJS IED</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.angularjs.org/1.2.16/angular.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-app="App">
+  <h1>Top Decnentralized Markets</h1>
+  <div ng-controller="Ctrlx">
+    <table>
+      <tr>
+        <td>Rank</td>
+        <td>Name</td>
+		<td>Total Supply</td>
+        <td>Consensus</td>
+		<td>Ticker</td>
+        <td><span ng-click="add()">Add New</span></td>
+      </tr>
+      <tr ng-repeat="profile in Profiles">
+        <td>
+          <input type="text" ng-model="profile.rank" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.rank }}</span>
+        </td>
+        <td>
+          <input type="text" ng-model="profile.name" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.name }}</span>
+        </td>
+		<td>
+          <input type="text" ng-model="profile.totals" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.totals }}</span>
+        </td>
+        <td>
+          <input type="text" ng-model="profile.consensus" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.consensus }}</span>
+        </td>
+		<td>
+          <input type="text" ng-model="profile.ticker" ng-show="profile.editable">
+          <span ng-hide="profile.editable">{{ profile.ticker }}</span>
+        </td>
+        <td>
+          <span ng-click="edit($index)" ng-hide="profile.editable">Edit</span>
+          <span ng-click="save($index)" ng-show="profile.editable">Save</span>
+          <span ng-click="delete($index)"> | Delete</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+  </body>
+
+</html>
